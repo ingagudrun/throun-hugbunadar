@@ -3,6 +3,10 @@ public class Seat {
     private boolean availability;
     private int price;
     
+    public Seat(String seatNumber, int price){
+        this.seatNumber=seatNumber;
+        this.price=price;
+    }
     public String getSeatNumber(){return seatNumber;}
     public void setSeatNumber(String val){seatNumber=val;}
     public boolean getAvailability(){return availability;}
