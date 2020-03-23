@@ -1,3 +1,5 @@
+package flight;
+
 public class Booking {
    private String BOOKING_NUMBER;
    private Flight flight;
