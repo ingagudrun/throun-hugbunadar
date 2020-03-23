@@ -1,5 +1,5 @@
 public class Booking {
-   private String BOOKING_NUMBER;
+   private String bookingNumber;
    private Flight flight;
    private Seat seat;
    private Passenger passenger;
@@ -13,8 +13,8 @@ public class Booking {
       this.passenger=passenger;
    }
    
-   public String getBookingNumber(){return BOOKING_NUMBER;}
-   public void setBookingNumber(String val){BOOKING_NUMBER=val;}
+   public String getBookingNumber(){return bookingNumber;}
+   public void setBookingNumber(String val){bookingNumber=val;}
    public Flight getFlight(){return flight;}
    public Seat getSeat(){return seat;}
    public Passenger getPassenger(){return passenger;}
