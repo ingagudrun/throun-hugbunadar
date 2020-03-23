@@ -7,14 +7,17 @@ public class Booking {
    private boolean paid;
    private boolean refunded;
    
+   public Booking(Flight flight, Seat seat, Passenger passenger){
+      this.flight=flight;
+      this.seat=seat;
+      this.passenger=passenger;
+   }
+   
    public String getBookingNumber(){return BOOKING_NUMBER;}
    public void setBookingNumber(String val){BOOKING_NUMBER=val;}
    public Flight getFlight(){return flight;}
-   public void setFlight(Flight val){flight=val;}
    public Seat getSeat(){return seat;}
-   public void setSeat(Seat val){seat=val;}
    public Passenger getPassenger(){return passenger;}
-   public void setPassenger(Passenger val){passenger=val;}
    public boolean getLuggage(){return luggage;}
    public void setLuggage(boolean val){luggage=val;}
    public boolean getPaid(){return paid;}
