@@ -14,13 +14,14 @@ public class Flight {
     private Seat[] seats;
     private int luggagePrice;
     
-    public Flight(String flightNumber, String airline, String destTo, String destFrom, String departureTime, String arrivalTime, int price){
+    public Flight(String flightNumber, String airline, String destTo, String destFrom, String departureTime, String arrivalTime, String duration, int price){
         this.flightNumber = flightNumber;
         this.airline = airline;
         this.destFrom = destFrom;
         this.destTo = destTo;
         this.departureTime = departureTime;
         this.arrivalTime = arrivalTime;
+        this.duration=duration;
         this.price = price;
     }
     //Þurfum kannski ekki alla þetta getters/setters?
