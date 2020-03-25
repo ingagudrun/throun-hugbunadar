@@ -1,11 +1,11 @@
 package is.hi.flugleit;
 
-class Seat {
+public class Seat {
     private String seatNumber;
     private int price;
     private boolean availability;
 
-    public void Seat(String seatNumber, int price) {
+    public Seat(String seatNumber, int price) {
         this.seatNumber = seatNumber;
         this.price = price;
     }

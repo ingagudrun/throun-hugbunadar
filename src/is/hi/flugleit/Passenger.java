@@ -1,3 +1,5 @@
+package is.hi.flugleit;
+
 public class Passenger {
     private String name;
     private int ssn;

@@ -1,3 +1,5 @@
+package is.hi.flugleit;
+
 public class Flight {
 
     private String flightNumber;
@@ -43,10 +45,10 @@ public class Flight {
     public void setAvailableSeats(int val){availableSeats=val;}
     public Seat[] getSeats(){return seats;}
     public void setSeats(Seat[] val){
-        N=val.length;
-        Seat seats=new Seat[N];
-        for(i=0;i<N;i++)
-            Seat[i]=val[i];
+        int N=val.length;
+        Seat[] seats =new Seat[N];
+        for(int i=0;i<N;i++)
+            seats[i]=val[i];
     }
     public int getLuggagePrice(){return luggagePrice;}
     public void setLuggagePrice(int val){luggagePrice=val;}
@@ -59,3 +61,4 @@ public class Flight {
     public void updateAvailability(Seat seat, boolean available){
     
     }
+}

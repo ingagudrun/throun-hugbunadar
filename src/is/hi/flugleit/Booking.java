@@ -1,3 +1,5 @@
+package is.hi.flugleit;
+
 public class Booking {
    private String bookingNumber;
    private Flight flight;
