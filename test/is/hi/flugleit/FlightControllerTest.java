@@ -1,3 +1,5 @@
+package is.hi.flugleit;
+
 import org.junit.*;
 import static org.junit.Assert.*;
 
