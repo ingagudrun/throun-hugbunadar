@@ -21,8 +21,9 @@ public class FlightControllerTest {
   }
   @Test
   public void testSearch() {
-  
-  assert...(...);
+    Flight[] flights2=flights.search("27.03.2020","Akureyri", "Reykjavík");
+    assertEquals(1, flights2.length);
+    assertEquals(flights[0], flights2[0]);
   }
   
   @Test
