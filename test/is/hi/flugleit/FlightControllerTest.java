@@ -41,7 +41,7 @@ public class FlightControllerTest {
   @Test
   @Order(3)
   public void testSearchFail() {
-    Flight[] flights2 = flightController.search("27.03.2020","Dallas", "New York");
+    Flight[] flights2 = flightController.search("27.03.2020","22", "Reykjavik");
     
     assertEquals(0, flights2.length);
   }
