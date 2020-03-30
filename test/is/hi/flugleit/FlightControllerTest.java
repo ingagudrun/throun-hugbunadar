@@ -30,11 +30,13 @@ public class FlightControllerTest {
   public void testSortByPrice() {
     Flight[] flights2=flights.sort(price);
     assertEquals(flights[1],flights2[0]);
+    assertEquals(flights[0],flights2[1]);
   }
   
   @Test
   public void testSortByDuration() {
     Flight[] flights2=flights.sort(duration);
     assertEquals(flights[0],flights2[0]);
+    assertEquals(flights[1],flights2[1]);
   }
 }
