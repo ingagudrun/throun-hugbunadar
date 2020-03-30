@@ -21,7 +21,9 @@ public class FlightControllerTest {
     flightController=null;
   }
 
-  /*@Test
+  /* Þetta test á að vera commentað út, viljum spyrja aðeins út í það.
+  
+  @Test
   @Order(1)
   public void testCreate() {
     for (int i=0; i < flights.length; i++) {
