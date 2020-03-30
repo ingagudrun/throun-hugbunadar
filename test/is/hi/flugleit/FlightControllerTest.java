@@ -40,6 +40,14 @@ public class FlightControllerTest {
   
   @Test
   @Order(3)
+  public void testSearchFail() {
+    Flight[] flights2 = flightController.search("27.03.2020","Dallas", "New York");
+    
+    assertEquals(0, flights2.length);
+  }
+  
+  @Test
+  @Order(4)
   public void testSortByPrice() {
     Flight[] flights2 = flightController.sortByPrice();
 
@@ -48,11 +56,12 @@ public class FlightControllerTest {
   }
   
   @Test
-  @Order(4)
+  @Order(5)
   public void testSortByDuration() {
     Flight[] flights2 = flightController.sortByDuration();
 
     assertEquals(flights[0],flights2[0]);
     assertEquals(flights[1],flights2[1]);
   }
+  
 }
