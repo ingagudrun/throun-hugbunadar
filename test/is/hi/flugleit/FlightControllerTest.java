@@ -5,37 +5,53 @@ import static org.junit.Assert.*;
 
 public class FlightControllerTest {
   private Flight[] flights;
+  private FlightController flightController;
   
   @Before
   public void setUp() { 
-    flights=new Flight[2];
+    flightController = new FlightController();
+
     flights[0]= new Flight("A515", "Air Iceland Connect", "Akureyri", "Reykjavík", "27.03.2020-18:45", "27.03.2020-19:30", 15000);
     flights[1]= new Flight("A573", "Air Iceland Connect", "Akureyri", "Reykjavík", "28.03.2020-07:00", "28.03.2020-07:50", 12500);
   }
+
   @After
   public void tearDown() { 
     flights=null;
-    //ATH: þarf að gera eftirfarandi eða er nóg að gera bara hitt?
-    flights[0]=null;
-    flights[1]=null;
+    flightController=null;
   }
+
   @Test
+  @Order(1)
+  public void testCreate() {
+    for (int i=0; i < flights.length; i++) {
+      flightController.createFlight(flights[i]);
+    }
+  }
+
+  @Test
+  @Order(2)
   public void testSearch() {
-    Flight[] flights2=flights.search("27.03.2020","Akureyri", "Reykjavík");
+    Flight[] flights2 = flightController.search("27.03.2020","Akureyri", "Reykjavík");
+
     assertEquals(1, flights2.length);
     assertEquals(flights[0], flights2[0]);
   }
   
   @Test
+  @Order(3)
   public void testSortByPrice() {
-    Flight[] flights2=flights.sort(price);
+    Flight[] flights2 = flightController.sortByPrice();
+
     assertEquals(flights[1],flights2[0]);
     assertEquals(flights[0],flights2[1]);
   }
   
   @Test
+  @Order(4)
   public void testSortByDuration() {
-    Flight[] flights2=flights.sort(duration);
+    Flight[] flights2 = flightController.sortByDuration();
+
     assertEquals(flights[0],flights2[0]);
     assertEquals(flights[1],flights2[1]);
   }
