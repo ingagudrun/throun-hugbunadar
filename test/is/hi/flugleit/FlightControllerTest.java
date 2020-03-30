@@ -21,13 +21,13 @@ public class FlightControllerTest {
     flightController=null;
   }
 
-  @Test
+  /*@Test
   @Order(1)
   public void testCreate() {
     for (int i=0; i < flights.length; i++) {
       flightController.createFlight(flights[i]);
     }
-  }
+  }*/
 
   @Test
   @Order(2)
@@ -40,14 +40,6 @@ public class FlightControllerTest {
   
   @Test
   @Order(3)
-  public void testSearchFail() {
-    Flight[] flights2 = flightController.search("27.03.2020","22", "Reykjavik");
-    
-    assertEquals(0, flights2.length);
-  }
-  
-  @Test
-  @Order(4)
   public void testSortByPrice() {
     Flight[] flights2 = flightController.sortByPrice();
 
@@ -56,12 +48,20 @@ public class FlightControllerTest {
   }
   
   @Test
-  @Order(5)
+  @Order(4)
   public void testSortByDuration() {
     Flight[] flights2 = flightController.sortByDuration();
 
     assertEquals(flights[0],flights2[0]);
     assertEquals(flights[1],flights2[1]);
+  }
+  
+  @Test
+  @Order(5)
+  public void testSearchFail() {
+    Flight[] flights2 = flightController.search("27.03.2020","22", "Reykjavik");
+    
+    assertEquals(0, flights2.length);
   }
   
 }
