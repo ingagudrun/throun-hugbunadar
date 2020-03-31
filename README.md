@@ -32,6 +32,7 @@ Skrár sem þið ætlið að senda inn ættu að vera grænar, ef þær eru rau�
 Þá er hægt að committa
 
     git commit -m "lagadi ehv unit test"
+    git push -u origin <branch-name>
 
 ### Sameina kóða (merge)
 
