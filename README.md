@@ -9,11 +9,11 @@ Flugleitarvél. Vor 2020.
 1. Búið til ykkar eigið fork af verkefninu
 2. Setjið upp git á tölvunni ykkar
 3. Sækið verkefnið í tölvuna ykkar með git clone
-
-    git clone https://github.com/<username>/throun-hugbunadar.git
-
 4. Setjið upp ykkar eigið branch (master er bara fyrir tilbúinn kóða)
 
+Skipanirnar eru eftirfarandi
+
+    git clone https://github.com/<username>/throun-hugbunadar.git
     git branch <username>
     git checkout <username>
 
