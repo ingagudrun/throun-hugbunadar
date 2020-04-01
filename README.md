@@ -1,5 +1,7 @@
 # Þróun Hugbúnaðar
 
+[![Build Status](https://travis-ci.org/Ingimarsson/throun-hugbunadar.svg?branch=master)](https://travis-ci.org/Ingimarsson/throun-hugbunadar)
+
 Flugleitarvél. Vor 2020.
 
 ## Hvernig á að nota git
