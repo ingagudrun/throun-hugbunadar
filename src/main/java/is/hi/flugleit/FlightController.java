@@ -1,7 +1,9 @@
 package is.hi.flugleit;
 
+import java.util.*;
+
 class FlightController {
-    private flightDB FlightDB;
+    private FlightDB flightDB;
     private Flight[] flights;
 
     public FlightController() {
@@ -13,7 +15,7 @@ class FlightController {
     }
 
     public Flight[] search(String date, String destTo, String destFrom, String sortBy) {
-        flights = flightDB.selectAll(date, destTo, destFrom, sortBy);
+        flights = flightDB.selectAll(date, destTo, destFrom);
 
         sort(sortBy);
 
@@ -29,13 +31,13 @@ class FlightController {
     public void sort(String sortBy) {
         switch (sortBy) {
             case "date":
-                Arrays.sort(flights, (a,b) -> a.arrivalDate.compareTo(b.arrivalDate));
+                Arrays.sort(flights, (a,b) -> a.getArrivalTime().compareTo(b.getArrivalTime()));
                 break;
             case "price":
-                Arrays.sort(flights, (a,b) -> a.price.compareTo(b.price));
+                Arrays.sort(flights, (a,b) -> b.getPrice() - a.getPrice());
                 break;
             case "duration":
-                Arrays.sort(flights, (a,b) -> a.duration.compareTo(b.duration));
+                Arrays.sort(flights, (a,b) -> a.getDuration().compareTo(b.getDuration()));
                 break;
         }
     }
