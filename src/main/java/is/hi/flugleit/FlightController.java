@@ -2,12 +2,20 @@ package is.hi.flugleit;
 
 import java.util.*;
 
-class FlightController {
+import javax.json.*;
+
+import org.springframework.boot.*;
+import org.springframework.boot.autoconfigure.*;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@EnableAutoConfiguration
+public class FlightController {
     private FlightDB flightDB;
     private Flight[] flights;
 
-    public FlightController() {
-        flightDB = new FlightDB();
+    public FlightController(FlightDB flightDB) {
+        this.flightDB = flightDB;
     }
 
     public void createFlight(Flight f) {
@@ -28,18 +36,11 @@ class FlightController {
         return flights;
     }
 
+    public Flight[] getFlights() {
+        return flights;
+    }
+
     public void sort(String sortBy) {
-        switch (sortBy) {
-            case "date":
-                Arrays.sort(flights, (a,b) -> a.getArrivalTime().compareTo(b.getArrivalTime()));
-                break;
-            case "price":
-                Arrays.sort(flights, (a,b) -> b.getPrice() - a.getPrice());
-                break;
-            case "duration":
-                Arrays.sort(flights, (a,b) -> a.getDuration().compareTo(b.getDuration()));
-                break;
-        }
     }
 
     public void sortByDate() {
@@ -52,5 +53,26 @@ class FlightController {
 
     public void sortByDuration() {
         sort("duration");
+    }
+    
+    @RequestMapping("/search")
+    public String getSearch(@RequestParam String date, @RequestParam String to, @RequestParam String from, @RequestParam String sort) {
+        Flight[] flights = search(date, to, from);
+
+        JsonArrayBuilder results = Json.createArrayBuilder();
+
+        for (int i = 0; i < flights.length; i++) {
+            results.add(Json.createObjectBuilder()
+                .add("flightNumber", flights[i].getFlightNumber())
+                .add("airline", flights[i].getAirline())
+                .add("destTo", flights[i].getDestTo())
+                .add("destFrom", flights[i].getDestFrom())
+                .add("departureTime", flights[i].getDepartureTime())
+                .add("arrivalTime", flights[i].getArrivalTime())
+                .add("price", flights[i].getPrice())
+            );
+        }
+
+        return results.build().toString();
     }
 }

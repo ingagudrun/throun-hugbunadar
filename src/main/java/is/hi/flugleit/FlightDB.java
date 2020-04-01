@@ -4,11 +4,15 @@ import java.sql.*;
 import java.util.*;
 
 public class FlightDB extends Database {
+    public FlightDB(String url) {
+        super(url);
+    }
+
     public Flight[] selectAll(String date, String destTo, String destFrom) {
         List<Flight> flights = new ArrayList<Flight>();
 
         try {
-            pstmt = conn.prepareStatement("SELECT * FROM flights WHERE dest_to=? AND dest_from=? AND DATE(departure_time)=?");
+            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM flight WHERE dest_to=? AND dest_from=? AND DATE(departure_time)=?");
 
             pstmt.setString(1, destTo);
             pstmt.setString(2, destFrom);
@@ -29,7 +33,7 @@ public class FlightDB extends Database {
             }
         }
         catch (java.sql.SQLException e) {
-
+            System.out.println(e);
         }
 
        
@@ -38,7 +42,7 @@ public class FlightDB extends Database {
 
     public void createFlight(Flight f) {
         try {
-            pstmt = conn.prepareStatement("INSERT INTO flights(flight_number, airline, dest_to, dest_from, departure_time, arrival_time, price, luggage_price, duration) VALUES(?,?,?,?,?,?,?,?,?)");
+            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO flights(flight_number, airline, dest_to, dest_from, departure_time, arrival_time, price, luggage_price, duration) VALUES(?,?,?,?,?,?,?,?,?)");
 
             pstmt.setString(1, f.getFlightNumber());
             pstmt.setString(2, f.getAirline());

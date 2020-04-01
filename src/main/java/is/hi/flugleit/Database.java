@@ -3,18 +3,18 @@ package is.hi.flugleit;
 import java.sql.*;
 
 public class Database {
-    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    static final String DB_URL = "jdbc:sqlite:./database.sqlite3";
+    private String url;
 
     protected Connection conn;
-    protected PreparedStatement pstmt;
 
-    public Database() { 
+    public Database(String url) { 
+        this.url = url;
+
         try {
-            conn = DriverManager.getConnection(DB_URL);
+            conn = DriverManager.getConnection(url);
         } 
         catch (java.sql.SQLException e) {
-
+            System.out.println("Database connection failed");
         }
     }
 }
