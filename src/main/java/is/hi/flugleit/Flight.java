@@ -53,12 +53,13 @@ public class Flight {
     public int getLuggagePrice(){return luggagePrice;}
     public void setLuggagePrice(int val){luggagePrice=val;}
    
-        /**
-     * Updates the availability of a certain seat
-     * ATH: þurfum að gera þannig að hverju sæti samsvari boolean breyta sem segir
-     * hvort það sé available
-     */
+    //Updates the availability of a certain seat
     public void updateAvailability(Seat seat, boolean available){
-    
+        if (seat.getAvailability()==available) return;
+        else {
+            seat.setAvailability(available);
+            if(available) availableSeats++;
+            else availableSeats--;
+        }
     }
 }
