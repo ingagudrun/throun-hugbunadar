@@ -46,7 +46,7 @@ public class Flight {
     public Seat[] getSeats(){return seats;}
     public void setSeats(Seat[] val){
         int N=val.length;
-        Seat[] seats =new Seat[N];
+        seats =new Seat[N];
         for(int i=0;i<N;i++)
             seats[i]=val[i];
     }
