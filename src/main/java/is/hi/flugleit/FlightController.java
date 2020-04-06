@@ -70,6 +70,7 @@ public class FlightController {
                 .add("departureTime", flights[i].getDepartureTime())
                 .add("arrivalTime", flights[i].getArrivalTime())
                 .add("price", flights[i].getPrice())
+                .add("availableSeats", flights[i].getAvailableSeats())
             );
         }
 
