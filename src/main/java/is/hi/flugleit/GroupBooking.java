@@ -34,7 +34,7 @@ public class GroupBooking {
         JsonObjectBuilder result = Json.createObjectBuilder();
 
         result.add("groupBookingNumber", this.getGroupBookingNumber());
-        result.add("bookings", this.getBookings());
+        result.add("bookings", this.getBookings().getJson());
     
         return result;
     }
