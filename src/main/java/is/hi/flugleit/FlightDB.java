@@ -8,7 +8,15 @@ public class FlightDB extends Database {
         super(url);
     }
 
-    public Flight[] selectAll(String date, String destTo, String destFrom) {
+    /*
+    Returns all flights on a given route on given day.
+
+    @param date the date to search for on the format YYYY-MM-DD
+    @param destTo the destination of the flight
+    @param destFrom the departure location of the flight
+    @return an array of Flight objects
+    */
+    public Flight[] getFlights(String date, String destTo, String destFrom) {
         List<Flight> flights = new ArrayList<Flight>();
 
         try {
@@ -40,6 +48,22 @@ public class FlightDB extends Database {
         return flights.toArray(new Flight[flights.size()]);
     }
 
+    /*
+    Returns the details of the specified flight.
+
+    @param flightNumber the flight number of the flight
+    @return a Flight object for the specified flight
+    */
+    public Flight getFlight(String flightNumber) {
+
+      return null;
+    }
+
+    /*
+    Creates a flight from a given Flight object.
+
+    @param f a Flight object to insert into the database
+    */
     public void createFlight(Flight f) {
         try {
             PreparedStatement pstmt = conn.prepareStatement("INSERT INTO flights(flight_number, airline, dest_to, dest_from, departure_time, arrival_time, price, luggage_price, duration) VALUES(?,?,?,?,?,?,?,?,?)");
@@ -60,8 +84,19 @@ public class FlightDB extends Database {
 
         }
 
-        for (int i=0; i < f.getSeats().length; i++) {
-            // Create a DB record for each seat.
+        // Insert all the seats.
+        for (Seat s : f.getSeats()) {
+            this.createSeat(s, f.getFlightNumber());
         }
+    }
+
+    /*
+    Creates a new seat for a given flight.
+
+    @param s the Seat object to insert
+    @param flightNumber the number of the flight which the seat belongs to
+    */
+    private void createSeat(Seat s, String flightNumber) {
+        
     }
 }

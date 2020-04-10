@@ -14,6 +14,7 @@ public class GroupBooking {
   }
   
   public String getGroupBookingNumber(){return groupBookingNumber;}
+  public Booking[] getBookings() { return bookings; }
   public void setGroupBookingNumber(String val){groupBookingNumber=val;}
   public Booking[] getBookings(){return bookings;}
   public void setBookings(Booking[] val){
