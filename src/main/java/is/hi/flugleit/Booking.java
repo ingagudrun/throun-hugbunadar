@@ -1,5 +1,7 @@
 package is.hi.flugleit;
 
+import javax.json.*;
+
 public class Booking {
    private String bookingNumber;
    private Flight flight;
@@ -26,4 +28,20 @@ public class Booking {
    public void setPaid(boolean val){paid=val;}
    public boolean getRefunded(){return refunded;}
    public void setRefunded(boolean val){refunded=val;}
+   
+   
+    /*
+    Returns a json object for the web API.
+    @return JsonObjectBuilder with the flight data.
+    */
+    public JsonObjectBuilder createJson() {
+        JsonObjectBuilder result = Json.createObjectBuilder();
+
+        result.add("bookingNumber", this.getBookingNumber());
+        result.add("flight", this.getFlight());
+        result.add("seat", this.getSeat());
+        result.add("passenger", this.getPassenger());
+    
+        return result;
+    }
 }
