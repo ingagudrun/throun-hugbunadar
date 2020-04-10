@@ -80,6 +80,8 @@ public class Flight {
         result.add("departureTime", this.getDepartureTime());
         result.add("arrivalTime", this.getArrivalTime());
         result.add("price", this.getPrice());
+        result.add("availableSeats", this.getAvailableSeats());
+        result.add("luggagePrice", this.getLuggagePrice());
     
         return result;
     }
