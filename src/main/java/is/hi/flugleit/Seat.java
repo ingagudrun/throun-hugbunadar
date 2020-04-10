@@ -1,5 +1,7 @@
 package is.hi.flugleit;
 
+import javax.json.*;
+
 public class Seat {
     private String seatNumber;
     private int price;
@@ -15,4 +17,18 @@ public class Seat {
     public void setAvailability(boolean val){availability=val;}
     public int getPrice(){return price;}
     public void setPrice(int val){price=val;}
+    
+        /*
+    Returns a json object for the web API.
+
+    @return JsonObjectBuilder with the flight data.
+    */
+    public JsonObjectBuilder createJson() {
+        JsonObjectBuilder result = Json.createObjectBuilder();
+
+        result.add("seatNumber", this.getSeatNumber());
+        result.add("price", this.getPrice());
+    
+        return result;
+    }
 }
