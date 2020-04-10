@@ -38,9 +38,9 @@ public class Booking {
         JsonObjectBuilder result = Json.createObjectBuilder();
 
         result.add("bookingNumber", this.getBookingNumber());
-        result.add("flight", this.getFlight().getJson);
-        result.add("seat", this.getSeat().getJson);
-        result.add("passenger", this.getPassenger.().getJson);
+        result.add("flight", this.getFlight().getJson());
+        result.add("seat", this.getSeat().getJson());
+        result.add("passenger", this.getPassenger.().getJson());
         result.add("luggage", this.getLuggage());   
         result.add("paid", this.getPaid());
         result.add("refunded", this.getRefunded());
