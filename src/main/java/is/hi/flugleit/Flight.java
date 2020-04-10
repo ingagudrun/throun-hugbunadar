@@ -1,5 +1,7 @@
 package is.hi.flugleit;
 
+import javax.json.*;
+
 public class Flight {
 
     private String flightNumber;
@@ -60,5 +62,24 @@ public class Flight {
      */
     public void updateAvailability(Seat seat, boolean available){
     
+    }
+
+    /*
+    Returns a json object for the web API.
+
+    @return JsonObjectBuilder with the flight data.
+    */
+    public JsonObjectBuilder createJson() {
+        JsonObjectBuilder result = Json.createObjectBuilder();
+
+        result.add("flightNumber", this.getFlightNumber());
+        result.add("airline", this.getAirline());
+        result.add("destTo", this.getDestTo());
+        result.add("destFrom", this.getDestFrom());
+        result.add("departureTime", this.getDepartureTime());
+        result.add("arrivalTime", this.getArrivalTime());
+        result.add("price", this.getPrice());
+    
+        return result;
     }
 }
